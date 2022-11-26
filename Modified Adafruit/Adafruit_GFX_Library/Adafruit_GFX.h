@@ -7,7 +7,6 @@
 #else
 #include "WProgram.h"
 #endif
-#include "gfxfont.h"
 
 /// A generic graphics superclass that can handle all sorts of drawing. At a
 /// minimum you can subclass and provide drawPixel(). At a maximum you can do a
@@ -56,7 +55,7 @@ public:
   virtual void drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color);
   virtual void fillRect(int16_t x, int16_t y, int16_t w, int16_t h,
                         uint16_t color);
-  virtual void fillScreen(uint16_t color);
+  //virtual void fillScreen(uint16_t color);
   // Optional and probably not necessary to change
   virtual void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1,
                         uint16_t color);
@@ -68,15 +67,14 @@ public:
                 uint16_t bg, uint8_t size);
   void drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color,
                 uint16_t bg, uint8_t size_x, uint8_t size_y);
-  void getTextBounds(const char *string, int16_t x, int16_t y, int16_t *x1,
+  /*void getTextBounds(const char *string, int16_t x, int16_t y, int16_t *x1,
                      int16_t *y1, uint16_t *w, uint16_t *h);
   void getTextBounds(const __FlashStringHelper *s, int16_t x, int16_t y,
                      int16_t *x1, int16_t *y1, uint16_t *w, uint16_t *h);
   void getTextBounds(const String &str, int16_t x, int16_t y, int16_t *x1,
-                     int16_t *y1, uint16_t *w, uint16_t *h);
+                     int16_t *y1, uint16_t *w, uint16_t *h);*/
   void setTextSize(uint8_t s);
   void setTextSize(uint8_t sx, uint8_t sy);
-  void setFont(const GFXfont *f = NULL);
 
   /**********************************************************************/
   /*!
@@ -202,7 +200,6 @@ protected:
   uint8_t rotation;     ///< Display rotation (0 thru 3)
   bool wrap;            ///< If set, 'wrap' text at right edge of display
   bool _cp437;          ///< If set, use correct CP437 charset (default is off)
-  GFXfont *gfxFont;     ///< Pointer to special font
 };
 
 #endif // _ADAFRUIT_GFX_H
